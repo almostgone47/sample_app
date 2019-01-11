@@ -40,22 +40,28 @@ RSpec.describe StaticPagesController, type: :controller do
   render_views
 
   it "should have the correct title" do
-    visit "/static_pages/home"
+    visit root_path
     expect(page.title).to eq('Ruby on Rails Tutorial Sample App')
   end
   
   it "should have the correct title" do
-    visit "/static_pages/help"
+    visit help_path
     expect(page.title).to eq('Help | Ruby on Rails Tutorial Sample App')
   end
 
   it "should have the correct title" do
-    visit "/static_pages/about"
+    visit about_path
     expect(page.title).to eq('About | Ruby on Rails Tutorial Sample App')
   end
 
-  it "shoud have the correct title" do
-    visit '/static_pages/contact'
+  it "should have the correct title" do
+    visit contact_path
     expect(page.title).to eq('Contact | Ruby on Rails Tutorial Sample App')
   end
+
+  it "should have the correct title" do
+    visit signup_path
+    expect(page.title).to eq('Sign up | Ruby on Rails Tutorial Sample App')
+  end
+
 end
