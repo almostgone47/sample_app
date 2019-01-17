@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "SiteLayouts", type: :request do
   describe "GET /site_layouts" do
-    it "works! (now write some real specs)" do
+    it "checks all site links" do
       get root_path
 	    assert_select "a[href=?]", root_path, count: 2
 	    assert_select "a[href=?]", help_path
