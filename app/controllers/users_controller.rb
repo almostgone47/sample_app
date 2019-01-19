@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   include SessionsHelper
   
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   def new
@@ -14,17 +14,16 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    session[:current_user_id] = "blar blar blar blar!!!" 
   end
 
   def create
   	@user = User.new(user_params)
   	if @user.save
-      login(@user)
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:success] = "Please check your email to activate your account."
+      redirect_to root_path
   	else
-  		flash.now[:danger] = "Signup was unsuccessful!"
+  		flash.now[:danger] = "Signup was unsuccessful! Please re-submit your details."
   		render :new
   	end
   end
