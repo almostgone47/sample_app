@@ -8,9 +8,15 @@
 			</h1>
 		</section>
 	</aside>
+	<div class="col-md-8">
+		<% if @user.microposts.any? %>
+			<h3>Microposts: (<%= @user.microposts.count%>)</h3>
+			<ol class="microposts">
+				<%= render @microposts %>
+			</ol>
+			<%= will_paginate @microposts %>
+		<% end %>
+	</div>
+	<hr>
+	<small>Today's Date: <%= Time.now.strftime("%b %e, %Y") %></small>
 </div>
-<p>Email: <%= @user.email %></p>
-<small>Created At: <%= @user.created_at %></small>
-<small>Last Updated: <%= time_ago_in_words(@user.updated_at) %> ago</small>
-<hr>
-<small>Today's Date: <%= Time.now.strftime("%b %e, %Y") %></small>
