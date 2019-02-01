@@ -30,7 +30,6 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'sendgrid', '~> 1.2', '>= 1.2.4'
@@ -46,6 +45,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.8'
   gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+  gem 'faker', '~> 1.6', '>= 1.6.6'
 end
 
 group :development do
